@@ -115,10 +115,10 @@ export default function WildRiftPlayerLookup() {
             </div>
             <h1 className="text-6xl font-bold text-center mb-2">
               <span className="bg-gradient-to-r from-[#f0e6d2] via-[#c89b3c] to-[#f0e6d2] bg-clip-text text-transparent">
-                WILD RIFT
+                NEXUS
               </span>
             </h1>
-            <h2 className="text-2xl font-semibold text-[#0596aa] mb-4">SUMMONER LOOKUP</h2>
+            <h2 className="text-2xl font-semibold text-[#0596aa] mb-4">CREATOR'S LOOKUP</h2>
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-[#c89b3c] to-transparent rounded-full"></div>
           </div>
         </div>
@@ -133,27 +133,27 @@ export default function WildRiftPlayerLookup() {
               <div className="bg-gradient-to-r from-[#463714] to-[#1e2328] px-6 py-4 border-b border-[#463714]">
                 <div className="flex items-center">
                   <Search className="h-5 w-5 text-[#c89b3c] mr-3" />
-                  <h2 className="text-xl font-bold text-[#f0e6d2]">FIND SUMMONER</h2>
+                  <h2 className="text-xl font-bold text-[#f0e6d2]">FIND CREATOR'S</h2>
                 </div>
                 <p className="text-sm text-[#a09b8c] mt-1">Enter Summoner ID to view profile and statistics</p>
               </div>
               <CardContent className="p-6">
                 <form onSubmit={handleSearch} className="space-y-4">
-                  <div className="flex gap-3">
+                  <div className="flex gap-2 flex-col" >
                     <div className="relative flex-1">
                       <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#c89b3c] h-5 w-5" />
                       <Input
                         placeholder="Enter Summoner ID..."
                         value={uid}
                         onChange={(e) => setUid(e.target.value)}
-                        className="pl-12 h-12 bg-[#0f1419] border-2 border-[#463714] text-[#f0e6d2] placeholder-[#5bc0de] focus:border-[#c89b3c] focus:ring-[#c89b3c] rounded-xl text-lg"
+                        className="pl-12 h-12 w-full bg-[#0f1419] border-2 border-[#463714] text-[#f0e6d2] placeholder-[#5bc0de] focus:border-[#c89b3c] focus:ring-[#c89b3c] rounded-xl text-sm"
                         disabled={loading}
                       />
                     </div>
                     <Button
                       type="submit"
                       disabled={loading || !uid.trim()}
-                      className={`h-12 px-8 bg-gradient-to-r from-[#c89b3c] to-[#f0e6d2] hover:from-[#f0e6d2] hover:to-[#c89b3c] text-[#1e2328] font-bold rounded-xl transition-all duration-300 ${searchAnimation ? "animate-pulse" : ""}`}
+                      className={`h-12 px-5 bg-gradient-to-r from-[#c89b3c] to-[#f0e6d2] hover:from-[#f0e6d2] hover:to-[#c89b3c] text-[#1e2328] font-bold rounded-xl transition-all duration-300 ${searchAnimation ? "animate-pulse" : ""}`}
                     >
                       {loading ? (
                         <>
@@ -167,16 +167,6 @@ export default function WildRiftPlayerLookup() {
                         </>
                       )}
                     </Button>
-                    {(uid || searchResult) && (
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={clearSearch}
-                        className="h-12 px-6 border-2 border-[#463714] text-[#a09b8c] hover:bg-[#463714] hover:text-[#f0e6d2] rounded-xl"
-                      >
-                        CLEAR
-                      </Button>
-                    )}
                   </div>
                 </form>
 
@@ -267,7 +257,7 @@ export default function WildRiftPlayerLookup() {
                           <User className="h-12 w-12 text-[#5bc0de]" />
                         </div>
                       </div>
-                      <h3 className="text-2xl font-bold text-[#f0e6d2] mb-3">SUMMONER NOT FOUND</h3>
+                      <h3 className="text-2xl font-bold text-[#f0e6d2] mb-3">CREATOR'S NOT FOUND</h3>
                       <p className="text-[#a09b8c] mb-6 max-w-md mx-auto">
                         The Summoner ID "{uid}" doesn't exist in our database.
                       </p>
@@ -327,7 +317,7 @@ export default function WildRiftPlayerLookup() {
                         <div>
                           <h3 className="text-[#f0e6d2] font-semibold mb-1">Search Profile</h3>
                           <p className="text-[#a09b8c] text-sm">
-                            Click "SEARCH" to find the summoner's profile and stats
+                            Click "SEARCH" to find the CREATOR'S profile and stats
                           </p>
                         </div>
                       </div>
@@ -351,18 +341,13 @@ export default function WildRiftPlayerLookup() {
                         <div>
                           <h3 className="text-[#f0e6d2] font-semibold mb-1">Analyze Performance</h3>
                           <p className="text-[#a09b8c] text-sm">
-                            Review rank, win rate, and other key performance metrics
+                            Review your Quest and status.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="mt-6 p-4 bg-gradient-to-r from-[#0f1419] to-[#1e2328] rounded-xl border border-[#463714]">
-                    <p className="text-sm text-[#5bc0de] text-center">
-                      <strong>Note:</strong> The system searches for Summoner IDs in our Wild Rift database and returns
-                      all associated statistics and achievements.
-                    </p>
-                  </div>
+                  
                 </CardContent>
               </Card>
             </div>
@@ -376,9 +361,9 @@ export default function WildRiftPlayerLookup() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center mb-4 md:mb-0">
               <Gamepad2 className="h-5 w-5 text-[#c89b3c] mr-2" />
-              <span className="text-[#a09b8c] font-semibold">WILD RIFT SUMMONER DATABASE</span>
+              <span className="text-[#a09b8c] font-semibold">Nexus Program </span>
             </div>
-            <div className="text-[#5bc0de] text-sm">© 2025 Riot Games, Inc. All rights reserved.</div>
+            <div className="text-[#5bc0de] text-sm">© 2025 Rumble Royale, Inc. All rights reserved.</div>
           </div>
         </div>
       </footer>
