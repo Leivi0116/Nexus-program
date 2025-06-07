@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@layer base {
+  :root {
+    --background: 217 19% 8%;
+    --foreground: 45 23% 95%;
+
+    --card: 217 19% 8%;
+    --card-foreground: 45 23% 95%;
+
+    --popover: 217 19% 8%;
+    --popover-foreground: 45 23% 95%;
+
+    --primary: 42 87% 55%;
+    --primary-foreground: 217 19% 8%;
+
+    --secondary: 217 19% 15%;
+    --secondary-foreground: 45 23% 95%;
+
+    --muted: 217 19% 15%;
+    --muted-foreground: 45 23% 70%;
+
+    --accent: 188 91% 37%;
+    --accent-foreground: 45 23% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 23% 95%;
+
+    --border: 42 87% 25%;
+    --input: 217 19% 15%;
+    --ring: 42 87% 55%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* League of Legends Wild Rift inspired styles */
+.wildrift-text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.wildrift-glow {
+  box-shadow: 0 0 20px rgba(200, 155, 60, 0.3);
+}
+
+.wildrift-card-hover {
+  transition: all 0.3s ease;
+}
+
+.wildrift-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200, 155, 60, 0.15);
+}
+
+.wildrift-border-glow {
+  position: relative;
+}
+
+.wildrift-border-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, #c89b3c, #0596aa);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e2328;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #463714;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c89b3c;
+}
